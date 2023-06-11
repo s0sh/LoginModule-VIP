@@ -8,7 +8,11 @@
 import Foundation
 
 struct LoginNetworkWorker {
-    func login(_ creds: LoginDataModel, completion: (Bool) -> Void) {
-        completion(true)
+    func login(_ creds: LoginDataModel.Fetch.Request, completion: (LoginDataModel.Fetch.Responce) -> Void) {
+        let responce = LoginDataModel.Fetch.Responce(id: 1,
+                                                     name: "Will",
+                                                     sureName: "Smith",
+                                                     phoneNumber: "+1 233 453 11")
+        completion(responce)
     }
 }

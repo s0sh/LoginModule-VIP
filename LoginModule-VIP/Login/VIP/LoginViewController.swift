@@ -8,7 +8,7 @@
 import UIKit
 
 protocol LoginViewProtocol {
-    func loginResult(_ isSuccess: Bool)
+    func loginResult(_ model: LoginDataModel.Fetch.ViewModel)
 }
 
 class LoginViewController: BaseController {
@@ -54,8 +54,8 @@ extension LoginViewController {
 extension LoginViewController: LoginViewProtocol {
     
     // MARK: - is called by Presenter
-    func loginResult(_ isSuccess: Bool) {
-        print("\(isSuccess)")
+    func loginResult(_ model: LoginDataModel.Fetch.ViewModel) {
+        print("\(model)")
     }
     
 }

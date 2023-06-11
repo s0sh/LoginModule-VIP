@@ -95,10 +95,10 @@
 		B515961E2A35ADB20022089A /* Login */ = {
 			isa = PBXGroup;
 			children = (
+				B51596232A35B3370022089A /* VIP */,
 				B515963F2A35E0BE0022089A /* AuthView */,
 				B515962A2A35DE450022089A /* Models */,
 				B51596272A35C0FA0022089A /* Workers */,
-				B51596232A35B3370022089A /* VIP */,
 				B51596242A35B3450022089A /* Configurator */,
 			);
 			path = Login;

@@ -27,7 +27,7 @@ extension LoginInteractor: LoginInteractorProtocol {
     
     func loginAction(login: String, password: String) {
         
-        let data = LoginDataModel(login: login, password: password)
+        let data = LoginDataModel.Fetch.Request(login: login, password: password)
         
         networkAdapter.login(data) { result in
             self.presenter.handleResponce(result)

@@ -8,7 +8,7 @@
 import Foundation
 
 protocol LoginPresenterProtocol {
-    func handleResponce(_ isSuccess: Bool)
+    func handleResponce(_ result: LoginDataModel.Fetch.Responce)
 }
 
 final class LoginPresenter {
@@ -21,13 +21,12 @@ final class LoginPresenter {
 }
 
 extension LoginPresenter: LoginPresenterProtocol {
-    
-    // MARK: - make responce watever needed instead of 'isSuccess'.
-    // Something as Result<SomeModel, Error> shoould be here
-    
-    func handleResponce(_ isSuccess: Bool) {
-        // MARK: - Send handeled result to a view
-        view.loginResult(isSuccess)
+    func handleResponce(_ result: LoginDataModel.Fetch.Responce) {
+        let viewModel = LoginDataModel.Fetch.ViewModel(id: result.id,
+                                                       name: result.name ,
+                                                       sureName: result.sureName,
+                                                       phoneNumber: result.phoneNumber)
+        view.loginResult(viewModel)
     }
     
 }
