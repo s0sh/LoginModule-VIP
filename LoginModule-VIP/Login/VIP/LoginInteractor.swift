@@ -6,14 +6,12 @@
 //
 
 import Foundation
-// MARK: - Belongs to View Controller
+
 protocol LoginInteractorProtocol {
-    ///- Calls by ViewController by pressing login button
     func loginAction(login: String, password: String)
 }
 
 final class LoginInteractor {
-    // MARK: - Privates
     var presenter: LoginPresenterOutput?
     private let networkAdapter = LoginNetworkWorker()
 }
