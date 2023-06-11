@@ -13,7 +13,7 @@ protocol LoginViewProtocol {
 
 class LoginViewController: BaseController {
     
-    var interactor: LoginInteractorProtocol?
+    var presenter: LoginPresenterInput?
     
     private let authBlock = CSAuthorizationView()
     
@@ -42,7 +42,7 @@ extension LoginViewController {
     override func configureViews() {
         super.configureViews()
         authBlock.buttonPressedCallback = { [weak self] (email, password) in
-            self?.interactor?.loginAction(login: email, password: password)
+            self?.presenter?.loginWith(login: email, password: password)
         }
         
         authBlock.mainButtonPressedCallback = {

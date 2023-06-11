@@ -14,13 +14,8 @@ protocol LoginInteractorProtocol {
 
 final class LoginInteractor {
     // MARK: - Privates
-    private let presenter: LoginPresenterProtocol
+    var presenter: LoginPresenterOutput?
     private let networkAdapter = LoginNetworkWorker()
-    
-    // MARK: - Lifecycle
-    init(presenter: LoginPresenter) {
-        self.presenter = presenter
-    }
 }
 
 extension LoginInteractor: LoginInteractorProtocol {
@@ -30,7 +25,7 @@ extension LoginInteractor: LoginInteractorProtocol {
         let data = LoginDataModel.Fetch.Request(login: login, password: password)
         
         networkAdapter.login(data) { result in
-            self.presenter.handleResponce(result)
+            self.presenter?.handleResponce(result)
         }
     }
 }

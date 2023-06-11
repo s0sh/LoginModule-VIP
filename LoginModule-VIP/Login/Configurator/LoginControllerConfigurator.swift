@@ -10,9 +10,10 @@ import Foundation
 struct LoginControllerConfigurator {
     static func build() -> LoginViewController {
         let sourceController = LoginViewController()
-        let presenter = LoginPresenter(view: sourceController)
-        let interactor = LoginInteractor(presenter: presenter)
-        sourceController.interactor = interactor
+        let interactor = LoginInteractor()
+        let presenter = LoginPresenter(view: sourceController, interactor: interactor)
+        interactor.presenter = presenter
+        sourceController.presenter = presenter
         return sourceController
     }
 }
